@@ -1,0 +1,29 @@
+<h1>New post</h1>
+
+<div data-controller="examplex">
+  <%= form_with(model: @post) do |f| %>
+
+    <% if @step == :title %>
+      <div>
+        <%= f.text_field :title, placeholder: "Title" %>
+      </div>
+    <% end %>
+
+    <% if @step == :body %>
+      <div>
+        <%= f.text_area :body, placeholder: "Body" %>
+      </div>
+    <% end %>
+
+    <% if @step == :submit %>
+      <div>
+        <%= f.submit "Save" %>
+      </div>
+    <% end %>
+
+    <div>
+      <button data-reflex="click->ExampleReflex#next_step">Next</button>
+    </div>
+
+  <% end %>
+</div>

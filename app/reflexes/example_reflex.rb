@@ -20,4 +20,8 @@ class ExampleReflex < ApplicationReflex
   #   end
   #
   # Learn more at: https://docs.stimulusreflex.com
+
+  def next_step
+    @step = :body
+  end
 end
