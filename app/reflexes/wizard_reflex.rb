@@ -5,17 +5,15 @@ class WizardReflex < ApplicationReflex
 
   def next(values)
     @post = Post.persistant(session.id, values)
+    @step = STEPS[STEPS.find_index(read_step) + 1]
 
-    current_step = read_step
-    @step = STEPS[STEPS.find_index(current_step) + 1]
     write_step @step
   end
 
   def previous(values)
     @post = Post.persistant(session.id, values)
+    @step = STEPS[STEPS.find_index(read_step) - 1]
 
-    current_step = read_step
-    @step = STEPS[STEPS.find_index(current_step) - 1]
     write_step @step
   end
 
