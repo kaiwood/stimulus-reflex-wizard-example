@@ -1,3 +1,13 @@
-<h1>Post</h1>
+<h1>Posts</h1>
+
+<% if @posts %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <p><%= link_to "New post", new_post_path %></p>

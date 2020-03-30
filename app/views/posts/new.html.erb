@@ -23,6 +23,9 @@
       <p><%= @post.body %></p>
     </div>
 
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :body %>
+
     <button data-action="click->wizard#previous">Previous</button>
     <%= f.button "Save" %>
   <% end %>
