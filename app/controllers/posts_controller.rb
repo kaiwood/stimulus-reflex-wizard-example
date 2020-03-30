@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
-    @step ||= :title
+    @post ||= Post.persistant(session.id)
+    @step ||= Rails.cache.fetch("step:#{session.id}") { :title }
   end
 end
