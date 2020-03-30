@@ -8,4 +8,10 @@ class Post < ApplicationRecord
       body: Rails.cache.read("body:#{id}")
     )
   end
+
+  def self.clear_cache(id)
+    Rails.cache.delete("step:#{id}")
+    Rails.cache.delete("title:#{id}")
+    Rails.cache.delete("body:#{id}")
+  end
 end

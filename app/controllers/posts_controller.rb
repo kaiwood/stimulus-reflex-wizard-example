@@ -9,8 +9,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.save
+    @post = Post.create(post_params)
+    Post.clear_cache(session.id)
+
     redirect_to @post
   end
 
