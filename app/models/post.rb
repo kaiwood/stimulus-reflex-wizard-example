@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  def self.persistant(id, values = {})
+  def self.persistent(id, values = {})
     Rails.cache.write("title:#{id}", values["title"]) if values["title"]
     Rails.cache.write("body:#{id}", values["body"]) if values["body"]
 

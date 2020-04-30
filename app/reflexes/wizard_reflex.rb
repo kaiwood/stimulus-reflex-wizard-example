@@ -4,14 +4,14 @@ class WizardReflex < ApplicationReflex
   STEPS = [:title, :body, :submit]
 
   def next(values)
-    @post = Post.persistant(session.id, values)
+    @post = Post.persistent(session.id, values)
     @step = STEPS[STEPS.find_index(read_step) + 1]
 
     write_step @step
   end
 
   def previous(values)
-    @post = Post.persistant(session.id, values)
+    @post = Post.persistent(session.id, values)
     @step = STEPS[STEPS.find_index(read_step) - 1]
 
     write_step @step
